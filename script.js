@@ -8,7 +8,7 @@ gradient.addColorStop(0, 'white');
 gradient.addColorStop(0.5, 'gold');
 gradient.addColorStop(1, 'orangered');
 ctx.fillStyle = gradient;
-ctx.strokeStyle = 'white';
+ctx.strokeStyle = 'aquamarine';
 
 class Particle {
     constructor(effect) {
@@ -164,3 +164,4 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
