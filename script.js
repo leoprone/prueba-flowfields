@@ -8,7 +8,7 @@ gradient.addColorStop(0, 'white');
 gradient.addColorStop(0.5, 'gold');
 gradient.addColorStop(1, 'orangered');
 ctx.fillStyle = gradient;
-ctx.strokeStyle = 'gray';
+ctx.strokeStyle = 'white';
 
 class Particle {
     constructor(effect) {
@@ -33,7 +33,9 @@ class Particle {
         const dx = this.x - this.effect.mouse.x;
         const dy = this.y - this.effect.mouse.y;
         const distance = Math.hypot(dx, dy);
-        const force = this.effect.mouse.radius / distance;
+        /* const force = this.effect.mouse.radius / distance; */
+        const force = (this.effect.mouse.radius * .6) / distance; // más sensible
+
         if (distance < this.effect.mouse.radius) {
             const angle = Math.atan2(dy, dx);
             this.pushX += Math.cos(angle) * force;
@@ -74,13 +76,13 @@ class Effect {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particles = [];
-        this.numberOfParticles = 300;
+        this.numberOfParticles = 100;
         this.createParticles();
 
         this.mouse = {
             x: 0,
             y: 0,
-            radius: 200
+            radius: 50
         };
 
         window.addEventListener('resize', e => {
