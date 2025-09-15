@@ -76,7 +76,7 @@ class Effect {
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.particles = [];
-        this.numberOfParticles = 100;
+        this.numberOfParticles = 50;
         this.createParticles();
 
         this.mouse = {
@@ -164,4 +164,5 @@ function animate() {
     requestAnimationFrame(animate);
 }
 animate();
+
 
